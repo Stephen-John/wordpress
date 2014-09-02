@@ -45,6 +45,10 @@ fi
 # Users can place their own plugins and themes into .openshift/ directory
 # inside their GIT repository.
 #
+echo "Copying WordPress config from .openshift/config"
+rm ${OPENSHIFT_REPO_DIR}/php/wp-config.php
+cp -f ${OPENSHIFT_REPO_DIR}.openshift/config/wp-config.php ${OPENSHIFT_REPO_DIR}/php/wp-config.php
+
 echo "Copying WordPress plugins from .openshift/plugins"
 cp -rf $OPENSHIFT_REPO_DIR/.openshift/plugins/* ${OPENSHIFT_DATA_DIR}plugins/ 2>/dev/null
 
